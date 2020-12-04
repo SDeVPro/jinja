@@ -1,0 +1,57 @@
+{% extends 'homebase.html' %}
+{% load static %}
+{% block title %}Contact US{% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+{% block description %}{{ setting.description }}{% endblock %}
+
+{% block sidebar %}{% include 'sidebar.html' %}{% endblock %}
+{% block body %}
+<div id="breadcrumb">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active">Contact Us</li>
+        </ul>
+    </div>
+</div>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+               <div class="col-md-4">
+                   <div class="billing-details">
+                       <div class="section-title">
+                           <h3 class="title">Aloqa formasi</h3>
+                           {% if messages %}
+                               {% for message in messages %}
+                                   <div class="alert alert-{{ message }}" role="alert">
+                                    {{ message }}
+                                   </div>
+                               {% endfor %}
+                           {% endif %}
+                       </div>
+                   <form id="checkout-form" class="clearfix" method="post">
+                       {% csrf_token %}
+                       {{ form.as_p }}
+                       <input type="submit" value="SEND FORM">
+
+                   </form>
+                   </div>
+               </div>
+            <div class="col-md-8">
+                <div class="shipping-method">
+                    <div class="section-title">
+                        <h4 class="title">Bog'lanish uchun ma'lumot</h4>
+                    </div>
+                    <div>
+                        {% for rs in setting %}
+                            {{ rs.contact|safe }}
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}{% include 'footer.html' %}{% endblock %}

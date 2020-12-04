@@ -1,0 +1,114 @@
+{% load static %}
+	<!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- banner -->
+				<div class="col-md-12">
+                    <div class="section-title">
+                        <h2 class="title" style="width: 100%; text-align: center">Oxirgi qo'shilgan mahsulotlar</h2>
+                    </div>
+
+				</div>
+				<!-- /banner -->
+                {% for rs in product_latest %}
+				<!-- banner -->
+				<div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="product product-single">
+                        <div class="product-thumb">
+                            <a href="/product/{{ rs.id }}/{{ rs.slug }}/" class="main-btn quick-view"><i class="fa fa-search-plus">Ko'rish</i></a>
+                            <img src="{{ rs.image.url }}" alt="" style="height: 200px">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-price">{{ rs.price }} So'm</h3>
+                            <div class="product-rating">
+                                <i class="fa fa-star{% if rs.avaragereview < 1 %}-o empty{% endif %}"></i>
+                                <i class="fa fa-star{% if rs.avaragereview < 2 %}-o empty{% endif %}"></i>
+                                <i class="fa fa-star{% if rs.avaragereview < 3 %}-o empty{% endif %}"></i>
+                                <i class="fa fa-star{% if rs.avaragereview < 4 %}-o empty{% endif %}"></i>
+                                <i class="fa fa-star{% if rs.avaragereview < 5 %}-o empty{% endif %}"></i>
+                                {{ rs.avaragereview|stringformat:".2f" }}
+                            </div>
+                            <h2 class="product-name"><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h2>
+                            <div class="product-btns">
+                                <a href="/order/addtoshopcart/{{ rs.id }}" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Savatga qo'shish</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+				</div>
+                {% endfor %}
+
+            			<div class="row">
+				<!-- banner -->
+				<div class="col-md-12">
+                    <div class="section-title">
+                        <h2 class="title" style="width: 100%; text-align: center">Maxsus taklif</h2>
+                    </div>
+
+				</div>
+				<!-- /banner -->
+                {% for rs in product_picked %}
+				<!-- banner -->
+				<div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="product product-single">
+                        <div class="product-thumb">
+                            <a href="/product/{{ rs.id }}/{{ rs.slug }}/" class="main-btn quick-view"><i class="fa fa-search-plus">Ko'rish</i></a>
+                            <img src="{{ rs.image.url }}" alt="" style="height: 200px">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-price">{{ rs.price }} So'm</h3>
+                            <div class="product-rating">
+                                <i class="fa fa-star{% if rs.avaragereview < 1 %}-o empty{% endif %}"></i>
+                                <i class="fa fa-star{% if rs.avaragereview < 2 %}-o empty{% endif %}"></i>
+                                <i class="fa fa-star{% if rs.avaragereview < 3 %}-o empty{% endif %}"></i>
+                                <i class="fa fa-star{% if rs.avaragereview < 4 %}-o empty{% endif %}"></i>
+                                <i class="fa fa-star{% if rs.avaragereview < 5 %}-o empty{% endif %}"></i>
+                                {{ rs.avaragereview|stringformat:".2f" }}
+                            </div>
+                            <h2 class="product-name"><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h2>
+                            <div class="product-btns">
+                                <a href="/order/addtoshopcart/{{ rs.id }}" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Savatga qo'shish</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+				</div>
+                {% endfor %}
+				<!-- /banner -->
+	<div class="row">
+				<!-- banner -->
+				<div class="col-md-12">
+                    <div class="section-title">
+                        <h2 class="title" style="width: 100%; text-align: center">POST</h2>
+                    </div>
+
+				</div>
+				<!-- /banner -->
+                {% for rs in post %}
+				<!-- banner -->
+				<div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="product product-single">
+                        <div class="product-thumb">
+                            <a href="/post/{{ rs.id }}/{{ rs.slug }}" class="main-btn quick-view"><i class="fa fa-search-plus">Ko'rish</i></a>
+                            <img src="{{ rs.image.url }}" alt="" style="height: 200px">
+                        </div>
+                        <h2>{{ rs.title }}</h2>
+                    </div>
+
+				</div>
+                {% endfor %}
+				<!-- banner -->
+
+				<!-- /banner -->
+
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /section -->

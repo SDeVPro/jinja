@@ -1,0 +1,45 @@
+{% extends 'homebase.html' %}
+{% block title %}Frequently Asked Question{% endblock %}
+{% block description %}My Desc{% endblock %}
+{% block keywords %}My Key{% endblock %}
+
+
+{% block sidebar %}{% include 'sidebar.html' %}{% endblock %}
+{% block head %}
+    <script>
+        $(function(){
+            $("#accordion").accordion();
+        });
+    </script>
+{% endblock %}
+{% block body %}
+    <div id="breadcrumb">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li class="active">
+                    Ko'p beriladigan Savollar
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div id="accordion">
+                    {% for rs in faq %}
+                        <h3>{{ rs.question }}</h3>
+                        <div>
+                            <p>
+                                {{ rs.answer|safe }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}{% include 'footer.html' %}{% endblock %}
