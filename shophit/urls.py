@@ -3,9 +3,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from home import views
+from order import views as OV
 
 urlpatterns = [
     path('order', include('order.urls')),
+    path('shopcart/', OV.shopcart, name='shopcart'),
     path('product',include('product.urls')),
     path('',include('home.urls')),# '' - bu home
     path('faq/', views.faq, name='faq'),
