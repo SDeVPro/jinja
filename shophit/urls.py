@@ -6,6 +6,7 @@ from home import views
 from order import views as OV
 
 urlpatterns = [
+    path('user', include('user.urls')),
     path('order', include('order.urls')),
     path('shopcart/', OV.shopcart, name='shopcart'),
     path('product',include('product.urls')),
